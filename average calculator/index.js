@@ -59,12 +59,7 @@ const isFibonacci = (num) => {
 
 app.post('/numbers/:type', async (req, res) => {
   const { type } = req.params;
-  const numbers = req.body.numbers;
-
-  if (!numbers || !Array.isArray(numbers)) {
-    return res.status(400).json({ msg: "Please provide an array of numbers." });
-  }
-
+  
   if (!Object.keys(TYPE_MAP).includes(type)) {
     return res.status(400).json({ error: "Please provide a valid number type: prime, random, even, fibonacci." });
   }
